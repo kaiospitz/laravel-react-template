@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+/**
+ * Redirect all requests to React
+ */
+Route::view('/{path?}', 'home')
+    ->where('path', '^(?!api).*$')
+    ->name('react');

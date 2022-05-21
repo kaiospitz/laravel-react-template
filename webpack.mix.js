@@ -1,17 +1,13 @@
-const mix = require('laravel-mix');
+/* eslint-disable unused-imports/no-unused-vars */
+const mix = require('laravel-mix')
+/*const Dotenv = require('dotenv-webpack')
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel applications. By default, we are compiling the CSS
- | file for the application as well as bundling up all the JS files.
- |
- */
+mix.webpackConfig((webpack) => {
+    return {
+        plugins: [new Dotenv()],
+    }
+})*/
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.sass('client/assets/sass/global.scss', 'public/css').version()
+
+mix.js('client/app.js', 'public/js').version().react()
